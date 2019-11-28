@@ -3,8 +3,8 @@ import store from "../store.js";
 
 // @ts-ignore
 let _sandBox = axios.create({
-  //TODO Change YOURNAME to your actual name
-  baseURL: "//bcw-sandbox.herokuapp.com/api/YOURNAME/songs"
+  baseURL: "//bcw-sandbox.herokuapp.com/api/Peter/songs",
+  timeout: 5000
 });
 
 class SongsService {
@@ -53,6 +53,7 @@ class SongsService {
    */
   addSong(id) {
     //TODO you only have an id, you will need to find it in the store before you can post it
+    console.log("not broken");
     //TODO After posting it what should you do?
   }
 

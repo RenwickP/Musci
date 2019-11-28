@@ -12,12 +12,23 @@ export default class Song {
 
   get Template() {
     return `
+    <button type="button" class="btn btn-primary" onclick="app.songsController.addSong('${this._id}')">Press Me</button>
+    <img src="${this.albumArt}" >
+    
+<p>${this.album}</p>
+<p>${this.artist}</p>
+<p>${this.title}</p>
+<p>${this._id}</p>
+
 
         `;
   }
 
   get playlistTemplate() {
     return `
+    <img src="${this.albumArt}" >
+    <p>${this.title}</p>
+    <p>${this._id}</p>
 
         `;
   }
