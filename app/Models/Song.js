@@ -12,33 +12,33 @@ export default class Song {
 
   get Template() {
     return `
-    <button type="button" class="btn btn-primary" onclick="app.songsController.addSong('${this._id}')">Press Me</button>
-    <img src="${this.albumArt}" >
-    <audio controls src="${this.preview}"></audio>
-<p>${this.album}</p>
-<p>${this.artist}</p>
-<p>${this.title}</p>
-
-<p>${this.price}</p>
-
+   
+    <div class="card" style="width: 18rem;">
+    <img src="${this.albumArt}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="${this.title}">Card title</h5>
+      <p class="
+      ">${this.album} <p>${this.artist}</p> ${this.price}.</p>
+      <audio controls src="${this.preview}"></audio>
+      <a href="#" class="btn btn-primary" onclick="app.songsController.addSong('${this._id}')">Press Me</button></a>
+    </div>
+  </div>
 
         `;
   }
 
   get playlistTemplate() {
     return `
-    <button type="button" class="btn btn-primary" onclick="app.songsController.removeSong('${this._id}')">Delete Me</button>
-    
-    <audio controls src="${this.preview}"></audio>
-    <img src="${this.albumArt}" >
-    <p>${this.title}</p>
-    
-    <p>${this.album}</p>
-<p>${this.artist}</p>
-
-
-<p>${this.price}</p>
-
+    <div class="card" style="width: 18rem;">
+    <img src="${this.albumArt}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="${this.title}">Card title</h5>
+      <p class="
+      ">${this.album} <p>${this.artist}</p> ${this.price}.</p>
+      <audio controls src="${this.preview}"></audio>
+      <a href="#" class="btn btn-primary" onclick="app.songsController.removeSong('${this._id}')">Delete Me</button></a>
+    </div>
+  </div>
         `;
   }
 }
