@@ -18,7 +18,8 @@ export default class Song {
 <p>${this.album}</p>
 <p>${this.artist}</p>
 <p>${this.title}</p>
-<p>${this._id}</p>
+
+<p>${this.price}</p>
 
 
         `;
@@ -31,9 +32,17 @@ export default class Song {
     <audio controls src="${this.preview}"></audio>
     <img src="${this.albumArt}" >
     <p>${this.title}</p>
-    <p>${this._id}</p>
     
+    <p>${this.album}</p>
+<p>${this.artist}</p>
+
+
+<p>${this.price}</p>
 
         `;
   }
+}
+
+{
+  /* <p>${this._id}</p> */
 }
