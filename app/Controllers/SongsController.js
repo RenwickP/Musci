@@ -24,7 +24,7 @@ function _drawPlaylist() {
 export default class SongsController {
   constructor() {
     //TODO Don't forget to register your subscribers
-    _drawPlaylist();
+    // _drawPlaylist();
     store.subscribe("songs", _drawResults);
     store.subscribe("playlist", _drawPlaylist);
     // _drawResults();
@@ -48,7 +48,7 @@ export default class SongsController {
   addSong(id) {
     SongService.addSong(id);
     console.log("something");
-    _drawPlaylist();
+    // _drawPlaylist();
   }
 
   /**
@@ -58,6 +58,7 @@ export default class SongsController {
   removeSong(id) {
     SongService.removeSong(id);
     console.log("remove");
-    _drawPlaylist();
+    store.subscribe("playlist", _drawPlaylist);
+    // _drawPlaylist();
   }
 }

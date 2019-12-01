@@ -11,6 +11,7 @@ class SongsService {
   constructor() {
     // NOTE this will get your songs on page load
     this.getMySongs();
+    this.loadSongs();
   }
 
   /**
