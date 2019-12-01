@@ -79,7 +79,10 @@ class SongsService {
   removeSong(id) {
     // let deleteSong = store.State.songs.find(song => song._id == id);
     // _sandBox.delete(`"/" + ${id}`);
-    _sandBox.delete(`/${id}`);
+    _sandBox.delete(`/${id}`).then(res => {
+      this.loadSongs();
+    });
+    // this.loadSongs();
     // _sandBox.delete(`/${id}`);
     //TODO Send the id to be deleted from the server then update the store
   }

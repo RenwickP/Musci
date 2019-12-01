@@ -27,9 +27,12 @@ export default class Song {
   get playlistTemplate() {
     return `
     <button type="button" class="btn btn-primary" onclick="app.songsController.removeSong('${this._id}')">Delete Me</button>
+    
+    <audio controls src="${this.preview}"></audio>
     <img src="${this.albumArt}" >
     <p>${this.title}</p>
     <p>${this._id}</p>
+    
 
         `;
   }
