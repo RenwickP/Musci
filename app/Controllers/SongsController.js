@@ -6,7 +6,7 @@ import SongService from "../Services/SongsService.js";
 function _drawResults() {
   let template = "";
   let songs = store.State.songs;
-  songs.forEach(Song => (template += Song.Template));
+  songs.forEach(song => (template += song.Template));
 
   document.querySelector("#songs").innerHTML = template;
 }
@@ -14,7 +14,9 @@ function _drawResults() {
 function _drawPlaylist() {
   let template = "";
   let playlist = store.State.playlist;
+  console.log(playlist);
   playlist.forEach(item => (template += item.playlistTemplate));
+
   document.querySelector("#playlist").innerHTML = template;
 }
 
@@ -23,7 +25,8 @@ export default class SongsController {
   constructor() {
     //TODO Don't forget to register your subscribers
     store.subscribe("songs", _drawResults);
-    _drawResults();
+    store.subscribe("playlist", _drawPlaylist);
+    // _drawResults();
     _drawPlaylist();
   }
 
@@ -45,6 +48,7 @@ export default class SongsController {
   addSong(id) {
     SongService.addSong(id);
     console.log("something");
+    _drawPlaylist();
   }
 
   /**

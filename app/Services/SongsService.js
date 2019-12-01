@@ -58,13 +58,17 @@ class SongsService {
     let newSong = store.State.songs.find(song => song._id == id);
     console.log(newSong);
     _sandBox.post("", newSong);
-    store.commit("playlist", newSong);
+    this.loadSongs();
+
+    // store.commit("playlist", newSong);
   }
-  // loadSongs(){
-  //   _sandBox.get("").then(res => {
-  //     lets songs = res.
-  //   })
-  // }
+  loadSongs() {
+    _sandBox.get("").then(res => {
+      let playlist = res.data.data.map(song => new Song(song));
+      store.commit("playlist", playlist);
+    });
+  }
+
   /**
    * Sends a delete request to the sandbox to remove a song from the playlist
    * Afterwords it will update the store to reflect saved info
