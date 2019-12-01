@@ -14,7 +14,7 @@ export default class Song {
     return `
     <button type="button" class="btn btn-primary" onclick="app.songsController.addSong('${this._id}')">Press Me</button>
     <img src="${this.albumArt}" >
-    
+    <audio controls src="${this.preview}"></audio>
 <p>${this.album}</p>
 <p>${this.artist}</p>
 <p>${this.title}</p>

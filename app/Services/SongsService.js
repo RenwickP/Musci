@@ -38,8 +38,8 @@ class SongsService {
     _sandBox
       .get()
       .then(res => {
-        //TODO What are you going to do with this result
-        let results = res.results.map(rawData => new Song(rawData));
+        let results = res.data.data.map(rawData => new Song(rawData));
+        console.log(res);
       })
       .catch(error => {
         throw new Error(error);
@@ -55,8 +55,16 @@ class SongsService {
     //TODO you only have an id, you will need to find it in the store before you can post it
     console.log("not broken");
     //TODO After posting it what should you do?
+    let newSong = store.State.songs.find(song => song._id == id);
+    console.log(newSong);
+    _sandBox.post("", newSong);
+    store.commit("playlist", newSong);
   }
-
+  // loadSongs(){
+  //   _sandBox.get("").then(res => {
+  //     lets songs = res.
+  //   })
+  // }
   /**
    * Sends a delete request to the sandbox to remove a song from the playlist
    * Afterwords it will update the store to reflect saved info

@@ -14,7 +14,7 @@ function _drawResults() {
 function _drawPlaylist() {
   let template = "";
   let playlist = store.State.playlist;
-
+  playlist.forEach(item => (template += item.playlistTemplate));
   document.querySelector("#playlist").innerHTML = template;
 }
 
@@ -24,6 +24,7 @@ export default class SongsController {
     //TODO Don't forget to register your subscribers
     store.subscribe("songs", _drawResults);
     _drawResults();
+    _drawPlaylist();
   }
 
   /**Takes in the form submission event and sends the query to the service */
