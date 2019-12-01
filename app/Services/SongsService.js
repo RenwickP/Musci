@@ -57,8 +57,9 @@ class SongsService {
     //TODO After posting it what should you do?
     let newSong = store.State.songs.find(song => song._id == id);
     console.log(newSong);
-    _sandBox.post("", newSong);
-    this.loadSongs();
+    _sandBox.post("", newSong).then(res => {
+      this.loadSongs();
+    });
 
     // store.commit("playlist", newSong);
   }
@@ -75,6 +76,10 @@ class SongsService {
    * @param {string} id
    */
   removeSong(id) {
+    // let deleteSong = store.State.songs.find(song => song._id == id);
+    // _sandBox.delete(`"/" + ${id}`);
+    _sandBox.delete(`/${id}`);
+    // _sandBox.delete(`/${id}`);
     //TODO Send the id to be deleted from the server then update the store
   }
 }

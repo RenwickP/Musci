@@ -24,10 +24,10 @@ function _drawPlaylist() {
 export default class SongsController {
   constructor() {
     //TODO Don't forget to register your subscribers
+    _drawPlaylist();
     store.subscribe("songs", _drawResults);
     store.subscribe("playlist", _drawPlaylist);
     // _drawResults();
-    _drawPlaylist();
   }
 
   /**Takes in the form submission event and sends the query to the service */
@@ -55,5 +55,9 @@ export default class SongsController {
    * Takes in a song id to be removed from the users playlist and sends it to the server
    * @param {string} id
    */
-  removeSong(id) {}
+  removeSong(id) {
+    SongService.removeSong(id);
+    console.log("remove");
+    _drawPlaylist();
+  }
 }
